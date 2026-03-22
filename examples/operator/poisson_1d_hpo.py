@@ -1,5 +1,7 @@
 """
-This script runs Ray Tune hyperparameter optimization for a 1D Poisson DeepONet using HyperNOs and DeepXDE.
+Backend supported: pytorch
+
+This script runs Ray Tune hyperparameter optimization for a 1D Poisson DeepONet using HyperNOs (https://github.com/MaxGhi8/HyperNOs) and DeepXDE.
 The problem setup is based on DeepXDE/examples/operator/poisson_1d_pideeponet.py.
 """
 
@@ -10,14 +12,15 @@ os.environ["DDE_BACKEND"] = "pytorch"
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader
-import deepxde as dde
-from ray import tune
+from hypernos.datasets import deeponet_collate_fn
+from hypernos.loss_fun import LprelLoss
 
 # Import HyperNOs components
 from hypernos.tune import tune_hyperparameters
-from hypernos.loss_fun import LprelLoss
-from hypernos.datasets import deeponet_collate_fn
+from ray import tune
+from torch.utils.data import DataLoader
+
+import deepxde as dde
 
 
 # 1. Define the DeepXDE PDE problem
@@ -77,7 +80,7 @@ def dataset_builder(config):
     X_test, y_test, aux_test = pde_op.test()
 
     # In PDEOperatorCartesianProd, y_train is often None (physics-informed).
-    # For this HPO demo, we'll use a dummy target if y is None, 
+    # For this HPO demo, we'll use a dummy target if y is None,
     # or you could solve the PDE to get ground truth.
     if y_train is None:
         y_train = np.ones((X_train[0].shape[0], X_train[1].shape[0], 1))
