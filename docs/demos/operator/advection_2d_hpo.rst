@@ -203,9 +203,3 @@ To run this HPO demo, ensure you have ``HyperNOs`` and ``ray[tune]`` installed. 
     python examples/operator/advection_2d_hpo.py
 
 The script will launch the Ray Tune dashboard where you can monitor the progress of each trial in real-time. Once finished, it will print the best configuration and the corresponding relative loss.
-
-Full Code
----------
-
-.. literalinclude:: ../../../examples/operator/advection_2d_hpo.py
-    :language: python
