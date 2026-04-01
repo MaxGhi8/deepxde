@@ -1,5 +1,4 @@
-"""
-Backend supported: pytorch
+"""Backend supported: pytorch
 
 This script demonstrates a comprehensive Hyper-Parameter Optimization (HPO) for a 2D Advection PI-DeepONet.
 We explore a multi-dimensional search space including architecture (depth/width),
@@ -115,17 +114,26 @@ def dataset_builder(config):
 
     class PDEData:
         def __init__(self, bs):
+            device = (
+                torch.get_default_device()
+                if hasattr(torch, "get_default_device")
+                else "cpu"
+            )
+            g = torch.Generator(device=device)
+
             self.train_loader = DataLoader(
                 PDECartesianDataset(X_b_train, X_t_train, y_train),
                 batch_size=bs,
                 shuffle=True,
                 collate_fn=deeponet_collate_fn,
+                generator=g,
             )
             self.val_loader = DataLoader(
                 PDECartesianDataset(X_b_test, X_t_test, y_test),
                 batch_size=bs,
                 shuffle=False,
                 collate_fn=deeponet_collate_fn,
+                generator=g,
             )
             self.test_loader = self.val_loader
 

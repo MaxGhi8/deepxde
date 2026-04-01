@@ -1,5 +1,4 @@
-"""
-Backend supported: pytorch
+"""Backend supported: pytorch
 
 This script runs Ray Tune hyperparameter optimization for a 1D Poisson DeepONet using HyperNOs (https://github.com/MaxGhi8/HyperNOs) and DeepXDE.
 The problem setup is based on DeepXDE/examples/operator/poisson_1d_pideeponet.py.
