@@ -7,7 +7,7 @@ In scientific machine learning, finding the right combination of network archite
 
 .. note::
 
-    This code takes about 5 minutes to run.
+    This code takes about 5 minutes to run on a AMD Ryzen 5 7600 with 6 physical cores (12 threads).
 
 Problem setup
 -------------

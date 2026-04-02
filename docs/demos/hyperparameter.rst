@@ -10,5 +10,4 @@ Operator learning
    :maxdepth: 1
 
    hyperparameter/advection_2d_hpo
-
-- `Poisson equation with HPO <https://github.com/lululxvi/deepxde/blob/master/examples/hyperparameter/poisson_1d_hpo.py>`_
+   Poisson equation with HPO <https://github.com/lululxvi/deepxde/blob/master/examples/hyperparameter/poisson_1d_hpo.py>

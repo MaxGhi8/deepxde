@@ -38,4 +38,3 @@ PI-DeepONet
 -
     - `Diffusion reaction equation with aligned points using ZCS <https://github.com/lululxvi/deepxde/tree/master/examples/operator/diff_rec_aligned_zcs_pideeponet.py>`_
     - `Stokes flow with aligned points using ZCS <https://github.com/lululxvi/deepxde/tree/master/examples/operator/stokes_aligned_zcs_pideeponet.py>`_
-
